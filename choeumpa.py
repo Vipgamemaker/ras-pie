@@ -43,5 +43,5 @@ try:
             speak(option, msg)
 
 except KeyboardInterrupt:
-    print("거리 측정 완료 ")
+    print("거리 측정 완료")
     GPIO.cleanup()
