@@ -3,7 +3,7 @@ import time
 import os
 
 def speak(option, msg) :
-    os.system("espeak '{}'".format(option, msg))
+    os.system("espeak {} '{}'".format(option, msg))
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
@@ -36,12 +36,12 @@ try:
         time.sleep(0.4)
 
         option = '-v ko+f3 -s 120 -p 95'
-        msg = distance + '앞에 물체가 있습니다'
+        msg = str(distance) + '앞에 물체가 있습니다'
         
         if distance < 20:
             print('espeak', option, msg)
-            speak(option, msg)
+            speak(option, str(distance) + '앞에 물체가 있습니다')
 
 except KeyboardInterrupt:
-    print("거리 측정 완료")
+    print("거리 측정 완료 ")
     GPIO.cleanup()
